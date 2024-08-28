@@ -14,11 +14,7 @@ class AiResponseView(APIView):
         serializer = PromptSerializer(data=request.data)
         if serializer.is_valid():
             prompt = serializer.validated_data['prompt']
-            user = request.user
-            health_info = user.health_info.health_conditions
-            if health_info is None:
-                health_info = "None"
-            response = ai_response(prompt, health_info)
+            response = ai_response(prompt)
             return Response({'response': response})
         else:
             return Response(serializer.errors, status=400)
