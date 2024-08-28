@@ -3,7 +3,7 @@ import json
 from decouple import config
 
 
-def ai_response(user_input, health_condition):
+def ai_response(user_input):
     client = boto3.client(service_name='bedrock-runtime', region_name="us-east-1",
                           aws_access_key_id=config('AWS_ACCESS_KEY_ID'),
                           aws_secret_access_key=config('AWS_SECRET_ACCESS_KEY'))
@@ -19,7 +19,6 @@ def ai_response(user_input, health_condition):
                         "type": "text",
                         "text": f"You are an AI assistant specialized in pregnancy-related topics. Please provide a"
                                 f"very brief, accurate and helpful information for the following question: {user_input}."
-                                f"Also put into consideration the following health condition(s): {health_condition}"
                     }
                 ]
             }
