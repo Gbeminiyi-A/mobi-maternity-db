@@ -1,6 +1,6 @@
 ### API Documentation
 
-This documentation describes the API endpoints for user registration, login, health information management, and logout functionality in your Django REST Framework (DRF) application. The endpoints are primarily focused on managing user accounts and health-related data for patients and healthcare practitioners.
+This documentation describes the API endpoints for user registration, login, health information management, and logout functionality in the Django REST Framework (DRF) application. The endpoints are primarily focused on managing user accounts and health-related data for patients and healthcare practitioners.
 
 ---
 
