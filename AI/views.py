@@ -1,6 +1,6 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .ai_response import ai_response
+from .ai_response import ai_response, googleai_response
 from rest_framework.permissions import IsAuthenticated
 from .serializers import PromptSerializer
 
@@ -14,7 +14,7 @@ class AiResponseView(APIView):
         serializer = PromptSerializer(data=request.data)
         if serializer.is_valid():
             prompt = serializer.validated_data['prompt']
-            response = ai_response(prompt)
+            response = googleai_response(prompt)
             return Response({'response': response})
         else:
             return Response(serializer.errors, status=400)
