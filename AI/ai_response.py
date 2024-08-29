@@ -1,6 +1,8 @@
 import boto3
 import json
 from decouple import config
+import google.generativeai as genai
+
 
 
 def ai_response(user_input):
@@ -34,3 +36,10 @@ def ai_response(user_input):
                                    accept='application/json', contentType='application/json')
     response_body = json.loads(response['body'].read())
     return response_body['content'][0]['text']
+
+
+def googleai_response(user_input):
+    genai.configure(api_key=config("GOOGLE_API_KEY"))
+    model = genai.GenerativeModel(model_name="gemini-1.5-flash")
+    response = model.generate_content([f"You are an AI assistant specialized in pregnancy-related topics. Please provide a very brief, accurate and helpful information for the following question: {user_input}."])
+    return response
