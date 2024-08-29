@@ -169,11 +169,20 @@ CSRF_TRUSTED_ORIGINS = [
     'http://localhost:3000',  # Replace with your frontend URL
     'http://localhost:3001',
     'https://h2mnzncc-3001.uks1.devtunnels.ms',
+    'https://mobi-maternity-frontend.vercel.app',
 ]
 
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ALLOW_HEADERS = ['*']
+CORS_ALLOW_HEADERS = [
+    'authorization',
+    'content-type',
+    'x-requested-with',
+    'accept',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+]
 CORS_ALLOW_METHODS = ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
 
 # SESSION_COOKIE_AGE = 1209600  # 2 weeks
