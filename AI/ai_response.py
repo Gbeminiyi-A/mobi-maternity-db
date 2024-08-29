@@ -42,4 +42,4 @@ def googleai_response(user_input):
     genai.configure(api_key=config("GOOGLE_API_KEY"))
     model = genai.GenerativeModel(model_name="gemini-1.5-flash")
     response = model.generate_content([f"You are an AI assistant specialized in pregnancy-related topics. Please provide a very brief, accurate and helpful information for the following question: {user_input}."])
-    return response
+    return response.text
